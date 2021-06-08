@@ -1,4 +1,4 @@
-const cubeModel = require('./cube');
-const accessoryModel = require('./accessory');
+import cubeModel from './cube';
+import accessoryModel from './accessory';
 
-module.exports = { cubeModel, accessoryModel };
+export default { cubeModel, accessoryModel };

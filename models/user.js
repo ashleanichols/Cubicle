@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
+import { Schema, model } from 'mongoose';
+import { compare, genSalt, hash as _hash } from 'bcrypt';
 const saltRounds = 5;
 
-const userModelSchema = new mongoose.Schema({
+const userModelSchema = new Schema({
     username: {
         type: String,
         required: true,
@@ -15,20 +15,20 @@ const userModelSchema = new mongoose.Schema({
 });
 
 userModelSchema.methods = {
-    checkPassword: function (password) {
-        return bcrypt.compare(password, this.password);
+    checkPassword: function(password) {
+        return compare(password, this.password);
     }
-}
+};
 
-userModelSchema.pre('save', function (next) {
+userModelSchema.pre('save', function(next) {
     if (this.isModified('password')) {
-        bcrypt.genSalt(saltRounds, (err, salt) => {
+        genSalt(saltRounds, (err, salt) => {
             if (err) {
                 next(err);
                 return;
             }
 
-            bcrypt.hash(this.password, salt, (err, hash) => {
+            _hash(this.password, salt, (err, hash) => {
                 if (err) {
                     next(err);
                     return;
@@ -44,4 +44,4 @@ userModelSchema.pre('save', function (next) {
     next();
 });
 
-module.exports = mongoose.model('User', userModelSchema);
+export default model('User', userModelSchema);

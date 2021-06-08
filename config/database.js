@@ -1,6 +1,6 @@
-const config = require('./config');
-const mongoose = require('mongoose');
+import { dbUrl } from './config';
+import { connect } from 'mongoose';
 
-module.exports = () => {
-    return mongoose.connect(config.dbUrl, { useNewUrlParser: true });
-}
+export default () => {
+    return connect(dbUrl, { useNewUrlParser: true });
+};

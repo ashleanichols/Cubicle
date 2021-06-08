@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import { Schema, Types, model } from 'mongoose';
 
-const accessoryModelSchema = new mongoose.Schema({
+const accessoryModelSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -25,7 +25,7 @@ const accessoryModelSchema = new mongoose.Schema({
             message: props => `${props.value} should be maximum 70 characters long.`
         }
     },
-    cubes: [{ type: mongoose.Types.ObjectId, ref: 'Cube' }]    
+    cubes: [{ type: Types.ObjectId, ref: 'Cube' }]
 });
 
-module.exports = mongoose.model('Accessories', accessoryModelSchema);
+export default model('Accessories', accessoryModelSchema);

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+import { Schema, Types, model } from 'mongoose';
 
-const cubeModelSchema = new mongoose.Schema({
+const cubeModelSchema = new Schema({
     name: {
         type: String,
         required: true
@@ -35,8 +35,8 @@ const cubeModelSchema = new mongoose.Schema({
             message: props => `${props.value} should be a value between 1 and 6 inclusive.`
         }
     },
-    accessories: [{ type: mongoose.Types.ObjectId, ref: 'Accessories' }],
-    creatorId: { type: mongoose.Types.ObjectId, ref: 'User' }
+    accessories: [{ type: Types.ObjectId, ref: 'Accessories' }],
+    creatorId: { type: Types.ObjectId, ref: 'User' }
 });
 
 /*
@@ -46,4 +46,4 @@ cubeModelSchema.virtual('fullName').get(function() {
 })
 */
 
-module.exports = mongoose.model('Cube', cubeModelSchema)
+export default model('Cube', cubeModelSchema);

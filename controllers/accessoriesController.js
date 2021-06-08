@@ -1,12 +1,12 @@
-const { accessoryModel, cubeModel } = require('../models/models');
+import { accessoryModel, cubeModel } from '../models/models';
 
 function getCreate(req, res) {
     res.render('createAccessory.hbs');
 }
 
 function postCreate(req, res) {
-    let { name = null, description = null, imageUrl = null } = { ...req.body };
-    accessoryModel.create({ name, description, imageUrl }, function (err, createdAccessory) {
+    let { name = null, description = null, imageUrl = null } = {...req.body };
+    accessoryModel.create({ name, description, imageUrl }, function(err, createdAccessory) {
         if (err) console.error(err);
         res.redirect('/');
     });
@@ -25,18 +25,18 @@ function getAttach(req, res, next) {
 function postAttach(req, res) {
     let cubeId = req.params.id;
     let accessoryId = req.body.accessory;
-    
+
     Promise.all([
         cubeModel.updateOne({ _id: cubeId }, { $push: { accessories: accessoryId } }),
-        accessoryModel.updateOne({_id: accessoryId }, { $push: { cubes: cubeId } })
+        accessoryModel.updateOne({ _id: accessoryId }, { $push: { cubes: cubeId } })
     ]).then(() => {
         res.redirect('/');
     });
 }
 
-module.exports = {
+export default {
     getCreate,
     postCreate,
     getAttach,
     postAttach
-}
+};

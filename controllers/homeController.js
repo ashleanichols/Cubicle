@@ -1,18 +1,18 @@
-const cubeModel = require('../models/models').cubeModel;
+import { cubeModel } from '../models/models';
 
 function index(req, res, next) {
-    const { search = null, from = null, to = null } = { ...req.query };
+    const { search = null, from = null, to = null } = {...req.query };
     let query = {};
     if (search) {
         query = { name: { $regex: search } }
     }
 
     if (from) {
-        query = { ...query, difficultyLevel: { $gte: from } };
+        query = {...query, difficultyLevel: { $gte: from } };
     }
 
     if (to) {
-        query.difficultyLevel = { ...query.difficultyLevel, $lte: to };
+        query.difficultyLevel = {...query.difficultyLevel, $lte: to };
     }
 
     cubeModel.find(query).then(cubes => {
@@ -28,7 +28,7 @@ function pageNotFound(req, res) {
     res.render('404.hbs');
 }
 
-module.exports = {
+export default {
     index,
     about,
     pageNotFound

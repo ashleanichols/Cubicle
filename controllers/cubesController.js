@@ -5,10 +5,10 @@ function getCreate(req, res) {
 }
 
 function postCreate(req, res) {
-    let { name = null, description = null, imageUrl = null, difficultyLevel = null } = { ...req.body };
+    let { name = null, description = null, imageUrl = null, difficultyLevel = null } = {...req.body };
     difficultyLevel = Number(difficultyLevel);
     const user = req.user;
-    cubeModel.create({ name, description, imageUrl, difficultyLevel, creatorId: user._id }, function (err, createdCube) {
+    cubeModel.create({ name, description, imageUrl, difficultyLevel, creatorId: user._id }, function(err, createdCube) {
         if (err) console.error(err);
         res.redirect('/');
     });

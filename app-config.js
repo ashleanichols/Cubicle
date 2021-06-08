@@ -1,5 +1,5 @@
 const authCookieName = "auth_cookie";
 
-module.exports = {
+export default {
     authCookieName
-}
+};

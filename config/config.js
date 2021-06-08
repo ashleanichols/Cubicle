@@ -8,4 +8,7 @@ const config = {
     production: {}
 };
 
-module.exports = config[env];
+export const development = {
+    port: process.env.PORT || 3000
+};
+export const production = {};

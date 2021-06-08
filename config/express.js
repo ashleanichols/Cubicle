@@ -1,19 +1,19 @@
-const express = require('express');
-const handlebars = require('express-handlebars');
-const bodyParser = require('body-parser');
-const path = require('path');
-const cookieParser = require('cookie-parser');
+import { static } from 'express';
+import handlebars from 'express-handlebars';
+import { urlencoded } from 'body-parser';
+import { resolve } from 'path';
+import cookieParser from 'cookie-parser';
 const secret = 'sssecrettt';
 
-module.exports = (app) => {
-    app.use(bodyParser.urlencoded({ extended: false }));
+export default (app) => {
+    app.use(urlencoded({ extended: false }));
     app.use(cookieParser(secret));
     app.engine('.hbs', handlebars({
-        extname: '.hbs', 
+        extname: '.hbs',
         defaultLayout: '_layout',
         layoutsDir: 'views',
         partialsDir: 'views/partials'
     }));
-    app.set('views', path.resolve(__basedir, 'views'));
-    app.use(express.static(path.resolve(__basedir, 'static')));
+    app.set('views', resolve(__basedir, 'views'));
+    app.use(static(resolve(__basedir, 'static')));
 };
