@@ -1,7 +1,8 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 ashleanichols/Cubicle is built on the following main stack:
+
 - [MongoDB](http://www.mongodb.com/) – Databases
 - [Handlebars.js](http://handlebarsjs.com/) – Templating Languages & Extensions
 - [ExpressJS](http://expressjs.com/) – Microframeworks (Backend)
@@ -10,11 +11,13 @@ ashleanichols/Cubicle is built on the following main stack:
 - [nodemon](http://nodemon.io/) – node.js Application Monitoring
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 ashleanichols/Cubicle is built on the following main stack:
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/1030/leaf-360x360.png' alt='MongoDB'/> [MongoDB](http://www.mongodb.com/) – Databases
 - <img width='25' height='25' src='https://img.stackshare.io/service/1143/Handlebars.png' alt='Handlebars.js'/> [Handlebars.js](http://handlebarsjs.com/) – Templating Languages & Extensions
 - <img width='25' height='25' src='https://img.stackshare.io/service/1163/hashtag.png' alt='ExpressJS'/> [ExpressJS](http://expressjs.com/) – Microframeworks (Backend)
@@ -23,14 +26,15 @@ ashleanichols/Cubicle is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/5577/preview.png' alt='nodemon'/> [nodemon](http://nodemon.io/) – node.js Application Monitoring
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [ashleanichols/Cubicle](https://github.com/ashleanichols/Cubicle)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|16<br/>Tools used|11/09/23 <br/>Report generated|
+|16<br/>Tools used|01/04/24 <br/>Report generated|
 |------|------|
 </div>
 
@@ -144,4 +148,4 @@ Full tech stack [here](/techstack.md)
 <br/>
 <div align='center'>
 
-Generated via [Stack File](https://github.com/apps/stack-file)
+Generated via [Stack File](https://github.com/marketplace/stack-file)
